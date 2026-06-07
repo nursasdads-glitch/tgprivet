@@ -146,8 +146,9 @@ def update_client_online(client_id):
 class RATHTTPHandler(BaseHTTPRequestHandler):
 
     def log_message(self, format, *args):
-        logger.info(f"HTTP: {args[0]} {args[1]} {args[2]}")
-
+    # Безопасно склеиваем все пришедшие аргументы в строку
+    log_str = ' '.join(str(x) for x in args)
+    logger.info(f"HTTP: {log_str}")
     def _send_json(self, data, status=200):
         self.send_response(status)
         self.send_header('Content-Type', 'application/json')
